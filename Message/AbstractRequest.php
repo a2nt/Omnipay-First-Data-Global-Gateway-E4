@@ -82,7 +82,7 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
 		$data['gateway_id'] = $this->getGatewayID();
 		$data['password'] = $this->getPassword();
 		$data['transaction_type'] = $this->getTransactionType();
-
+		
 		return $data;
 	}
 

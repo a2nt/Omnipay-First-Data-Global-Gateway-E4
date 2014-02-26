@@ -23,15 +23,6 @@ class GlobalGateway extends AbstractGateway
         return 'First Data Global';
     }
 
-    public function getDefaultParameters()
-    {
-        return array(
-            'gatewayid' => '',
-            'password' => '',
-            'testMode' => false,
-        );
-    }
-
     public function authorize(array $parameters = array())
     {
         return $this->createRequest('\Omnipay\FirstData2\Message\FirstData', $parameters);
@@ -40,5 +31,34 @@ class GlobalGateway extends AbstractGateway
     public function purchase(array $parameters = array())
     {
         return $this->createRequest('\Omnipay\FirstData2\Message\PurchaseRequest', $parameters);
+    }
+
+    public function getDefaultParameters()
+    {
+        return array(
+            'gatewayid' => '',
+            'password' => '',
+            'testMode' => false,
+        );
+    }
+    
+    public function getGatewayid()
+    {
+        return $this->getParameter('gatewayid');
+    }
+
+    public function setGatewayid($value)
+    {
+        return $this->setParameter('gatewayid', $value);
+    }
+
+    public function getPassword()
+    {
+        return $this->getParameter('password');
+    }
+
+    public function setPassword($value)
+    {
+        return $this->setParameter('password', $value);
     }
 }
