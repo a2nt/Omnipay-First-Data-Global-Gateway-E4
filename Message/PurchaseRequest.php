@@ -17,10 +17,10 @@ class PurchaseRequest extends AbstractRequest
 		$data['reference_no'] = $this->getTransactionId();
 
 		// add credit card details
-		$data['credit_card_type'] = $this->getCard()->getBrand();
+		$data['credit_card_type'] = self::get_card_type($this->getCard()->getBrand());
 		$data['cc_number'] = $this->getCard()->getNumber();
 		$data['cardholder_name'] = $this->getCard()->getIssueNumber();
-		$data['cc_expiry'] = $this->getCard()->getExpiryMonth().$this->getCard()->getExpiryYear();
+		$data['cc_expiry'] = $this->getCard()->getExpiryDate('my');
 		$data['cc_verification_str2'] = $this->getCard()->getCvv();
 		//$data['cavv'] = $this->getCard()->getCvv();
 

@@ -115,4 +115,19 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
 	{
 		return $this->response = new Response($this, $data);
 	}
+
+	protected static $card_types = array(
+		'visa' => 'Visa', 
+		'mastercard' => 'Mastercard',
+		'discover' => 'Discover',
+		'amex' => 'American Express',
+		'diners_club' => 'Diners Club',
+		'jcb' => 'JCB', //'Gift Card', 'PayPal'
+	);
+	public static function get_card_type($type){
+		if(isset(self::$card_types[$type])){
+			return self::$card_types[$type];
+		}
+		return $type;
+	}
 }
